@@ -1,0 +1,94 @@
+{
+  "name": "amazon-cognito-auth-ts",
+  "description": "Amazon Cognito Auth Typescript & Promises",
+  "version": "1.0.0",
+  "author": {
+    "name": "morrys",
+    "url": "http://aws.amazon.com"
+  },
+  "homepage": "http://aws.amazon.com/cognito",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morrys/amazon-cognito-auth-ts"
+  },
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache License, Version 2.0",
+      "url": "http://aws.amazon.com/apache2.0/"
+    }
+  ],
+  "keywords": [
+    "amazon",
+    "aws",
+    "cognito",
+    "auth",
+    "typescript",
+    "promises",
+    "react-native"
+  ],
+  "scripts": {
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack dist/amazon-cognito-auth.js",
+    "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack dist/amazon-cognito-auth.min.js",
+    "prepare": "tsc",
+    "doc": "jsdoc src -d docs",
+    "lint": "eslint src",
+    "test": "jest --coverage",
+    "migrate": "ts-jest config:migrate package.json"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "@types/node": "8.10.48",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.5",
+    "jsdoc": "^3.4.0",
+    "react-native": "0.59.5",
+    "react": "16.8.3"
+  },
+  "dependencies": {
+    "js-cookie": "^2.1.4"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "warnOnly": true
+        },
+        "isolatedModules": true
+      }
+    },
+    "verbose": true,
+    "preset": "ts-jest",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "ts",
+      "tsx"
+    ],
+    "testEnvironment": "jsdom",
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    },
+    "testURL": "http://localhost/",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testMatch": null
+  }
+}

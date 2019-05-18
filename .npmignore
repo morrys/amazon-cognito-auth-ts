@@ -1,0 +1,6 @@
+src/
+*.tgz
+tsconfig.json
+__tests__
+sample
+coverage
